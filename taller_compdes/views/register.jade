@@ -1,0 +1,42 @@
+extends layout
+
+block content
+	form(action="/register" method="post")
+		table
+			tr
+				td
+					label(for="txtNombre") Nombre:
+				td
+					input(id="txtNombre" name="txtNombre")
+			tr
+				td
+					label(for="txtUsuario") Usuario:
+				td
+					input(id="txtUsuario" name="txtUsuario")
+			tr
+				td
+					label(for="txtClave") Clave:
+				td
+					input(id="txtClave" name="txtClave" type="password")
+			tr
+				td
+					label(for="txtConfirmar") Confirmar:
+				td
+					input(id="txtConfirmar" name="txtConfirmar" type="password" title="Volver a escribir su clave")
+			tr
+				td
+					label(for="cmbPregunta") Pregunta de seguridad:
+				td
+					select(id="cmbPregunta" name="cmbPregunta" value="0")
+						option
+						each pregunta in data
+							option(value="#{pregunta.id_pregunta}") #{pregunta.enunciado}
+			tr
+				td
+					label(for="txtRespuesta") Respuesta:
+				td
+					input(id="txtRespuesta" name="txtRespuesta")
+			tr
+				td(colspam="2")
+					button(id="btnCancelar" class="registro" name="btnCancelar") Cancelar
+					button(id="btnRegistrar" class="registro" name="btnRegistrar" value="0") Registrarme

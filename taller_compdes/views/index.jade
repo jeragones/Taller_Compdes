@@ -1,0 +1,24 @@
+extends layout
+
+block content
+
+	form(action="/login" method="post")
+		table
+			tr
+				td
+					label(for="txtUsuario") Usuario:
+				td
+					input(id="txtUsuario" name="txtUsuario")
+			tr
+				td
+					label(for="txtClave") Clave:
+				td
+					input(id="txtClave" name="txtClave" type="password")
+			if error
+				tr
+					td(colspan="2")
+						label(class="error") INGRESO FALLIDO: Datos incorrectos	
+			tr
+				td(colspan="2")
+					a(id="lnkRegistrar" href="/register") Registrarme
+					button(id="btnIniciar" name="btnIniciar" value="0") Iniciar Sesión
