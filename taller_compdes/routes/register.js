@@ -17,7 +17,7 @@ router.get('/', function(req, res) {
         if(err) {
             console.log('ERROR EN LA CONSULTA');
         } else {
-            res.render('register', { title : 'Restrar usuario', data : resp });
+            res.render('register', { title : 'Registrar Usuario', data : resp });
         }
     });
 });
@@ -39,7 +39,7 @@ router.post('/', function(req, res) {
                                                          pregunta+','+
                                                          '"'+respuesta+'");';
                 console.log(query);
-                
+
                 connection.query(query, function(err, resp) {
                     
                     if(err) {

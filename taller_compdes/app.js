@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/register', register);
-app.use('/login', login);
+
 app.use('/profile', profile);
 
 /// catch 404 and forward to error handler

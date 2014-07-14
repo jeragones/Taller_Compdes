@@ -10,29 +10,5 @@ var connection = mysql.createConnection({
     database: 'sesiones'
 });
 
-router.post('/', function(req, res) {    
-    if(req.body.btnIniciar == 0) {
-        var usuario = req.body.txtUsuario;
-        var clave = req.body.txtClave;
-        if(usuario != "" && clave != "") {
-            var query = 'SELECT nombre FROM usuario WHERE usuario="'+usuario+'" AND clave="'+clave+'"';
-            connection.query(query, function(err, resp) {
-                if(err) {
-                    console.log('ERROR EN LA INSERSION');
-                } 
-                if(resp.length > 0) {
-                    req.session.user = usuario;
-                    console.log(resp);
-                    res.render('profile', {title:usuario, data:resp});
-                }
-                else {
-                    res.render('index', { title:'Taller Compdes', error:true });
-                }
-            });
-        }
-    } else {
-        res.render('index', { title: 'Taller Compdes' });
-    }
-});
 
 module.exports = router;
