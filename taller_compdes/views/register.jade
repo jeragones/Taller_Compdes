@@ -7,22 +7,22 @@ block content
 				td
 					label(for="txtNombre") Nombre:
 				td
-					input(id="txtNombre" name="txtNombre")
+					input(id="txtNombre" name="txtNombre" required)
 			tr
 				td
 					label(for="txtUsuario") Usuario:
 				td
-					input(id="txtUsuario" name="txtUsuario")
+					input(id="txtUsuario" name="txtUsuario" required)
 			tr
 				td
 					label(for="txtClave") Clave:
 				td
-					input(id="txtClave" name="txtClave" type="password")
+					input(id="txtClave" name="txtClave" type="password" required)
 			tr
 				td
 					label(for="txtConfirmar") Confirmar:
 				td
-					input(id="txtConfirmar" name="txtConfirmar" type="password" title="Volver a escribir su clave")
+					input(id="txtConfirmar" name="txtConfirmar" type="password" title="Volver a escribir su clave" required)
 			tr
 				td
 					label(for="cmbPregunta") Pregunta de seguridad:
@@ -35,7 +35,7 @@ block content
 				td
 					label(for="txtRespuesta") Respuesta:
 				td
-					input(id="txtRespuesta" name="txtRespuesta")
+					input(id="txtRespuesta" name="txtRespuesta" required)
 			tr
 				td(colspam="2")
 					button(id="btnCancelar" class="registro" name="btnCancelar") Cancelar
