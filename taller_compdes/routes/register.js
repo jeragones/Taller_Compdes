@@ -38,7 +38,10 @@ router.post('/', function(req, res) {
                                                          '"'+clave+'",'+
                                                          pregunta+','+
                                                          '"'+respuesta+'");';
+                console.log(query);
+                
                 connection.query(query, function(err, resp) {
+                    
                     if(err) {
                         console.log('ERROR EN LA INSERSION');
                     } else {

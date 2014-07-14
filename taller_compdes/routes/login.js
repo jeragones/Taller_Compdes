@@ -22,7 +22,8 @@ router.post('/', function(req, res) {
                 } 
                 if(resp.length > 0) {
                     req.session.user = usuario;
-                    res.render('profile', {title:usuario, mensaje:'Bienvenido '+resp.nombre+'!!!'});
+                    console.log(resp);
+                    res.render('profile', {title:usuario, data:resp});
                 }
                 else {
                     res.render('index', { title:'Taller Compdes', error:true });

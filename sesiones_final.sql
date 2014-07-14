@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-07-2014 a las 19:52:27
+-- Tiempo de generación: 14-07-2014 a las 22:25:53
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.11
 
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `respuesta` varchar(20) NOT NULL,
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `id_usuario` (`id_usuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -65,7 +65,10 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 INSERT INTO `usuario` (`id_usuario`, `nombre`, `usuario`, `clave`, `pregunta`, `respuesta`) VALUES
 (1, 'jorge', 'jeragones', '123', 1, 'pecas'),
 (2, 'jorge', 'jeragones', '123', 1, 'pecas'),
-(3, 'Nixon', 'metalslave', 'nxn119313', 1, 'Mairene');
+(3, 'Nixon', 'metalslave', 'nxn119313', 1, 'Mairene'),
+(4, 's', 's', 's', 1, 's'),
+(5, 'daniel', 'jdbr', '1', 1, 'perro'),
+(6, 'zxc', 'zxc', 'zxc', 2, 'zxc');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
