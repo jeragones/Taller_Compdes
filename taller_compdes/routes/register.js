@@ -28,30 +28,30 @@ router.post('/', function(req, res) {
         var confirmar = req.body.txtConfirmar;
         var pregunta = req.body.cmbPregunta;
         var respuesta = req.body.txtRespuesta;
-        if(nombre != "" && usuario != "" && clave != "" && pregunta != "" && respuesta != "") {
-            if(clave === confirmar) {
+       
+        if(clave === confirmar) {
+            
+            data.insert(nombre,usuario,clave,pregunta,respuesta, function(err, resp) {
                 
-                
-
-                data.insert(nombre,usuario,clave,pregunta,respuesta, function(err, resp) {
+                if(err) {
                     
-                    if(err) {
-                        console.log(err);
-                        console.log('ERROR EN LA INSERSION');
-                        if(err.errno==1062){
-                            res.render('register', { title: 'Taller Compdes' , error:"Usuario Existente"});
-                        }
-                    } else {
-                        res.render('index', { title: 'Taller Compdes' });
+                    console.log('ERROR EN LA INSERSION');
+                    if(err.errno==1062){
+                        res.render('register', { title: 'Taller Compdes' , error:"Usuario Existente"});
                     }
-                });
-            }
+                } else {
+                    
+                    res.render('index', { title: 'Taller Compdes' });
+                }
+            });
         }
+        else{
+            res.render('register', { title: 'Taller Compdes' , error:"Las claves no coinciden"});
+        }
+        
     } else {
         res.render('index', { title: 'Taller Compdes' });
     }
 });
-
-
 
 module.exports = router;
