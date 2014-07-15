@@ -28,14 +28,19 @@ block content
 					label(for="cmbPregunta") Pregunta de seguridad:
 				td
 					select(id="cmbPregunta" name="cmbPregunta" value="0")
-						option
-						each pregunta in data
-							option(value="#{pregunta.id_pregunta}") #{pregunta.enunciado}
+						option(value="1") ¿Cual es el nombre de tu primer mascota?
+						option(value="2") ¿Nombre de su primer profesor de primaria?
+						option(value="3") ¿Lugar de procedencia de tu madre?
+						option(value="4") ¿Cual es tu banda preferida?
+						
 			tr
 				td
 					label(for="txtRespuesta") Respuesta:
 				td
 					input(id="txtRespuesta" name="txtRespuesta" required)
+			tr
+				td
+					label(class="error") #{error}
 			tr
 				td(colspam="2")
 					button(id="btnCancelar" class="registro" name="btnCancelar") Cancelar

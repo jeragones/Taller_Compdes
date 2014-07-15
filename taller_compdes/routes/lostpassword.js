@@ -10,5 +10,9 @@ var connection = mysql.createConnection({
     database: 'sesiones'
 });
 
+router.get("/", function(req, res){
+	res.render('lostpassword',{title:"Recuperar Contraseña"});
+});
+
 
 module.exports = router;

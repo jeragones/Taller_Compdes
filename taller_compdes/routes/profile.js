@@ -35,7 +35,7 @@ router.post('/', function(req, res) {
             var query = 'SELECT nombre FROM usuario WHERE usuario="'+usuario+'" AND clave="'+clave+'"';
             connection.query(query, function(err, resp) {
                 if(err) {
-                    console.log('ERROR EN LA INSERSION');
+                    console.log('ERROR EN LA CONSULTA');
                 } 
                 if(resp.length > 0) {
                     req.session.user = usuario;
@@ -43,7 +43,8 @@ router.post('/', function(req, res) {
                     res.render('profile', {title:usuario, data:resp});
                 }
                 else {
-                    res.render('index', { title:'Taller Compdes', error:true });
+                    console.log("ERROOOOOOOOOOOOOOOOOOOOOOOR");
+                    res.render('index', { title:'Taller Compdes', error:true});
                 }
             });
         }

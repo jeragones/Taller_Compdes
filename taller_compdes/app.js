@@ -7,13 +7,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var mysql = require('mysql');
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var register = require('./routes/register');
-var login = require('./routes/login');
+
 var profile = require('./routes/profile');
+var lost = require('./routes/lostpassword');
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/register', register);
+app.use('/lostpassword',lost);
 
 app.use('/profile', profile);
 
@@ -66,25 +68,6 @@ app.use(function(err, req, res, next) {
     });
 });
 
-var connection = mysql.createConnection({
-    user: 'adminSesiones',
-    password: 'admin123', 
-    host: 'localhost',
-    port: 3306, 
-    database: 'sesiones'
-});
 
-connection.connect(function(err) {
-    if (err) {
-        console.log("error conexion con la base de datos"); 
-    } else {
-        console.log("conexion exitosa con la base de datos");    
-    } 
-});
 
 module.exports = app;
-module.exports.connection = connection;
-
-
-
-
