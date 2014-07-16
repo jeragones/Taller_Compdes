@@ -8,13 +8,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
-
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var register = require('./routes/register');
-
 var profile = require('./routes/profile');
 var lost = require('./routes/lostpassword');
+var password = require('./routes/changepassword');
 
 var app = express();
 
@@ -34,8 +33,8 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/register', register);
 app.use('/lostpassword',lost);
-
 app.use('/profile', profile);
+app.use('/changepassword', password);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -67,7 +66,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
-
 
 module.exports = app;

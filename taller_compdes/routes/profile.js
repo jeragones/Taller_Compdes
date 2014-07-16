@@ -10,14 +10,10 @@ var connection = mysql.createConnection({
     database: 'sesiones'
 });
 
-/* GET home page. */
 router.get('/',login, function(req, res) {
 	var session = req.session.user;
-
 	var query = 'SELECT nombre FROM usuario WHERE usuario="'+session+'"';
-    console.log(query);
     connection.query(query, function(err, resp) {
-        console.log(resp);
         if(err) {
             console.log('ERROR EN LA INSERSION');
         } 
@@ -43,7 +39,6 @@ router.post('/', function(req, res) {
                     res.render('profile', {title:usuario, data:resp});
                 }
                 else {
-                    console.log("ERROOOOOOOOOOOOOOOOOOOOOOOR");
                     res.render('index', { title:'Taller Compdes', error:true});
                 }
             });
@@ -53,7 +48,6 @@ router.post('/', function(req, res) {
     }
 });
 
-
 function login(req, res, next){
 	if(req.session.user){
 		next();
@@ -61,7 +55,5 @@ function login(req, res, next){
 		res.render('index', { title: 'Taller Compdes', error:false });
 	}
 }
-
-
 
 module.exports = router;

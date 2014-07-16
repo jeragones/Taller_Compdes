@@ -16,7 +16,6 @@ router.get('/', function(req, res) {
             }    
 
     });*/
-    
 });
 
 router.post('/', function(req, res) {
@@ -30,17 +29,13 @@ router.post('/', function(req, res) {
         var respuesta = req.body.txtRespuesta;
        
         if(clave === confirmar) {
-            
             data.insert(nombre,usuario,clave,pregunta,respuesta, function(err, resp) {
-                
                 if(err) {
-                    
                     console.log('ERROR EN LA INSERSION');
                     if(err.errno==1062){
                         res.render('register', { title: 'Taller Compdes' , error:"Usuario Existente"});
                     }
                 } else {
-                    
                     res.render('index', { title: 'Taller Compdes' });
                 }
             });
@@ -48,7 +43,6 @@ router.post('/', function(req, res) {
         else{
             res.render('register', { title: 'Taller Compdes' , error:"Las claves no coinciden"});
         }
-        
     } else {
         res.render('index', { title: 'Taller Compdes' });
     }
