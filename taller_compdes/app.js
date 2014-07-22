@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
+// modulos importados
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var register = require('./routes/register');
@@ -29,6 +30,7 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// rutas del servidor
 app.use('/', routes);
 app.use('/users', users);
 app.use('/register', register);

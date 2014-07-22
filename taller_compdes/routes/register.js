@@ -4,18 +4,9 @@ var router = express.Router();
 var data = require('./data');
 
 
-router.get('/', function(req, res) {
-
-/*    data.getPreguntas(function(err,data){
-            if (err) {
-                // error handling code goes here
-                console.log("ERROR : ",err);            
-            } else {            
-                */res.render('register', { title : 'Registrar usuario'});/*
-    
-            }    
-
-    });*/
+router.get('/', function(req, res) {   
+    res.render('register', { title : 'Registrar usuario'});
+   
 });
 
 router.post('/', function(req, res) {

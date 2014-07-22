@@ -1,4 +1,6 @@
 extends layout
 
 block content
+	form(action="/profile" method="post")
 	h1 Bienvenido #{data[0].nombre}
+	button(name="logout") Cerrar Seccion

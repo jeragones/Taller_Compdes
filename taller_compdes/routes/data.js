@@ -1,3 +1,4 @@
+
 var data = require('mysql');
 
 var connection = data.createConnection({
@@ -15,6 +16,25 @@ connection.connect(function(err) {
 		console.log("conexion exitosa con la base de datos");    
 	}
 });
+
+function log(usuario,callback){
+
+	connection.query('SELECT nombre FROM usuario WHERE usuario="'+usuario+'"', function(err, rep){
+		if (err) 
+			callback(err,null);
+		else
+			callback(null,resp);
+	});
+
+}
+function login(usuario, clave, callback){
+	connection.query('SELECT nombre FROM usuario WHERE usuario="'+usuario+'" AND clave="'+clave+'"', function(err, resp){
+		if (err) 
+			callback(err,null);
+		else
+			callback(null,resp);
+	});
+}
 
 function getPreguntas(callback){
 	connection.query('SELECT id_pregunta, enunciado FROM pregunta', function(err, resp) {
@@ -68,4 +88,4 @@ function setClave(usuario, clave, callback) {
 	});
 }
 
-module.exports = {getPreguntas:getPreguntas, getPregunta:getPregunta, getRespuesta:getRespuesta, insert:insert, setClave:setClave};
+module.exports = {login:login,log:log,getPreguntas:getPreguntas, getPregunta:getPregunta, getRespuesta:getRespuesta, insert:insert, setClave:setClave};
